@@ -1,0 +1,78 @@
+<div class="page-wrapper">
+    <div class="log-div">
+    <div class="container-fluid">
+        <div class="row">
+
+  <div class="col-md-6 offset-md-3">
+    <div class="row-fluid">
+        <div class="card " id="container">
+
+            <!-- <video #video width="640" height="480" autoplay></video> -->
+    
+            <!-- <video width="640" height="480" src="http://10.7.1.13:5000/"></video> -->
+            <form [formGroup]="loginForm">
+    
+    
+                <!-- <ion-card > -->
+                <div class="col-md-10 offset-md-1">
+                    <div class="mytheme">
+    
+                        <div class="ion-text-center" size="8" offset="2">
+                            <!-- <img src="./assets/iot.png" /> -->
+                        </div>
+                        <div class="ion-padding ion-text-center col-md-12">
+                            <div class="lg-title ion-padding">
+                                <h2>
+                                    <i>Face Detection System</i>
+                                </h2>
+                            </div>
+    
+                        </div>
+                        <div class="col-md-12">
+                            <div class=" ion-padding">
+                                <div color="mycard">
+                                    <label position="stacked">Username </label>
+                                    <input class="form-control" name="userName" type="text" formControlName="userName" />
+                                    <!-- <p class="text-danger"
+                                    *ngIf="loginForm.get('userName') && loginForm.get('userName').touched && loginForm.get('userName').hasError('required')">
+                                    user is required</p> -->
+                                </div>
+                                <div color="mycard">
+                                    <label position="stacked">Password </label>
+                                    <input type="text" class="form-control" formControlName="passCode" />
+                                    <!-- <p class="text-danger"
+                            *ngIf="loginForm.get('passCode').touched && loginForm.get('passCode').hasError('required')">
+                            Password is required</p> -->
+    
+                                </div>
+    
+                            </div>
+    
+                        </div>
+                        <div class="m-3 text-center">
+                            <button class="btn btn-success" (click)="loginFn()">
+                                <!-- <ion-icon color="dark" name="log-in-outline"></ion-icon> -->
+                                Login
+                            </button>
+                    
+                            <!-- <button class="btn btn-info" (click)="loadPage('reg')">
+                                Sign Up
+                            </button> -->
+                    
+                        </div>
+                        
+                    </div>
+                </div>
+        
+    
+            </form>
+    
+        </div>
+    </div>
+  </div>
+
+        </div>
+    </div>
+    
+    </div>
+</div>

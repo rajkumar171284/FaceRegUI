@@ -1,0 +1,87 @@
+<div class="wrapper">
+    <div class="card">
+        <div class="card-content card-header">
+
+            <div [ngClass]="{'activeTab':activeTab==1,'inactiveTab':activeTab!=1}" (click)="activeTab=1" id="tab1">
+                Registered Lists</div>
+            <div [ngClass]="{'activeTab':activeTab==2,'inactiveTab':activeTab!=2}" (click)="activeTab=2" id="tab2">New
+                Entry</div>
+        </div>
+        <div *ngIf="activeTab==1" class="row card-content1">
+
+
+        </div>
+
+        <div *ngIf="activeTab==2" class="row card-content1">
+
+            <div class="col-md-6" id="tabContent2">
+                <div class="row tabContent2-info2">
+                    <div class="col-md-6 offset-md-3 text-center1">
+                        <form class=" form-group mt-4">
+                            <div class="reg-form">
+                                <div class="form-group text-left">
+                                    <label for="text">Emp ID:</label>
+                                    <input type="text" class="form-control-lgb form-control" id="text">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="pwd">Emp Name:</label>
+                                    <input type="text" class="form-control" id="text">
+                                </div>
+
+                                <div class="cfooter">
+                                    <button type="submit" class="m-2 btn btn-default">Save details</button>
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-6" id="tabContent1">
+                <div class="row">
+
+                    <div class="col-md-10 offset-md-1 mt-2">
+
+                        <div class="card text-center camDiv">
+
+
+                            <div *ngIf="!showWebcam">
+                                <img height="210"  src="../../../assets/face-detection.png" />
+
+                            </div>
+                            <div>
+
+                                <!-- <webcam *ngIf="showWebcam" [imageQuality]="1" (imageCapture)="handleImage($event)"
+                                    [height]="500" [width]="500" [videoOptions]="videoOptions">
+
+                                </webcam> -->
+
+                                <webcam [height]="500" [width]="500" [trigger]="triggerObservable"
+                                    (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+                                    [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable"
+                                    [videoOptions]="videoOptions" [imageQuality]="1"
+                                    (cameraSwitched)="cameraWasSwitched($event)" (initError)="handleInitError($event)">
+                                </webcam>
+                            </div>
+                            <div class="cfooter">
+                                <button class="btn m-2" (click)="showWebcam?triggerSnapshot():'';">Take A Snapshot</button>
+
+                                <button type="submit" (click)="showWebcam=!showWebcam" class="btn btn-primary">Turn
+                                    {{showWebcam?'Off':'On'}} Cam</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
