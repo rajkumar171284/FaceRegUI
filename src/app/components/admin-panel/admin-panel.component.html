@@ -61,13 +61,17 @@
                                     [height]="500" [width]="500" [videoOptions]="videoOptions">
 
                                 </webcam> -->
+                                <iframe *ngIf="showWebcam" src="http://127.0.0.1:5000/video_feed" width="500" height="350">
 
-                                <webcam [height]="500" [width]="500" [trigger]="triggerObservable"
+                                </iframe>
+
+
+                                <!-- <webcam [height]="500" [width]="500" [trigger]="triggerObservable"
                                     (imageCapture)="handleImage($event)" *ngIf="showWebcam"
                                     [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable"
                                     [videoOptions]="videoOptions" [imageQuality]="1"
                                     (cameraSwitched)="cameraWasSwitched($event)" (initError)="handleInitError($event)">
-                                </webcam>
+                                </webcam> -->
                             </div>
                             <div class="cfooter">
                                 <button class="btn m-2" (click)="showWebcam?triggerSnapshot():'';">Take A Snapshot</button>
