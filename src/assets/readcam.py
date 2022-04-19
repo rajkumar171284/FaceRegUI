@@ -3,19 +3,23 @@ from flask import Flask,render_template,Response,request, jsonify
 import cv2
 from flask_cors import CORS
 from pydantic import BaseModel
+
+
 class GreetingModel(BaseModel):
-texts: str
-names: strapp=Flask(__name__) #creating app
+    texts: str
+    names: str
+
+app=Flask(__name__) #creating app
 camera=cv2.VideoCapture(0) #cam-access webcam, default-0
 CORS(app)
 def generate_frames():
-while True:
+    while True:
 ## read the camera frame
-success,frame=camera.read()
-if not success:
-break
-else:
-ret,buffer=cv2.imencode('.jpg',frame)
+    success,frame=camera.read()
+    if not success:
+        break
+    else:
+    ret,buffer=cv2.imencode('.jpg',frame)
 frame=buffer.tobytes() yield(b'--frame\r\n'
 b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 # @app.route('/', methods=['GET'])
