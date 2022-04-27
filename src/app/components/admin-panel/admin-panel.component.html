@@ -47,7 +47,9 @@
                 <div class="row">
 
                     <div class="col-md-10 offset-md-1 mt-2">
+                        <!-- <div [innerHTML]="webcamDiv" >
 
+                        </div> -->
                         <div class="card text-center camDiv">
 
 
@@ -55,15 +57,16 @@
                                 <img height="210"  src="../../../assets/face-detection.png" />
 
                             </div>
+                           
                             <div>
 
-                                <webcam *ngIf="showWebcam" [imageQuality]="1" (imageCapture)="handleImage($event)"
+                                <!-- <webcam *ngIf="showWebcam" [imageQuality]="1" (imageCapture)="handleImage($event)"
                                     [height]="500" [width]="500" [videoOptions]="videoOptions">
 
-                                </webcam>
-                                <!-- <iframe *ngIf="showWebcam" src="http://127.0.0.1:5000/video_feed2" width="500" height="350">
+                                </webcam> -->
+                                <iframe *ngIf="showWebcam" [src]="webUrl | safepipe" width="920" height="360">
 
-                                </iframe> -->
+                                </iframe>
 
 
                                 <!-- <webcam [height]="500" [width]="500" [trigger]="triggerObservable"
@@ -74,7 +77,9 @@
                                 </webcam> -->
                             </div>
                             <div class="cfooter">
-                                <button class="btn m-2" (click)="showWebcam?triggerSnapshot():'';">Take A Snapshot</button>
+
+                                <!-- <button class="btn m-2" (click)="webcam();">web</button> -->
+                                <button class="btn m-2" (click)="showWebcam?triggerSnapshot():webcam();">Take A Snapshot</button>
 
                                 <button type="submit" (click)="showWebcam=!showWebcam" class="btn btn-primary">Turn
                                     {{showWebcam?'Off':'On'}} Cam</button>

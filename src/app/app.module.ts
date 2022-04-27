@@ -7,23 +7,26 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LandingComponent } from './components/landing/landing.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import {WebcamModule} from 'ngx-webcam';
+import { WebcamModule } from 'ngx-webcam';
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import {FaceApiService} from './face-api.service';
+import { SafepipePipe } from './safepipe.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    SafepipePipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,FormsModule,
+    BrowserAnimationsModule, FormsModule,
     ReactiveFormsModule,
-    WebcamModule
+    WebcamModule, HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClientModule,FaceApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
